@@ -12,7 +12,7 @@ class Node{
     }
 }
 
-class One{
+class Main{
     public static Node insertAtStart(Node head, int data){
         Node newNode = new Node(data);
 
