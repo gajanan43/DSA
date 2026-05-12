@@ -186,7 +186,7 @@ import java.util.*;
 // Implementation of Stack using Vector
 import java.util.Stack;
 
-public class StackT {
+public class Main {
 
     public static void display(Stack<Integer> s) {
         if (s.empty()) {
