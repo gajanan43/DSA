@@ -328,74 +328,71 @@ import java.util.*;
 
 // Implementation of Circular Queue using Array
 
-// class Queue{
-// int arr[];
-// int front;
-// int rear;
-// int size;
+class Queue {
+    int arr[];
+    int front;
+    int rear;
+    int size;
 
-// Queue(int n){
-// arr = new int[n];
-// size = n;
-// front = rear=-1;
-// }
+    Queue(int n) {
+        arr = new int[n];
+        size = n;
+        front = rear = -1;
+    }
 
-// void enqueue(int x){
-// if(isFull()){
-// System.out.println("Queue is full");
-// }
-// else if(isEmpty()){
-// front=rear=0;
-// arr[rear]=x;
-// }
-// else{
-// rear=(rear+1)%size;
-// arr[rear]=x;
-// }
-// }
+    void enqueue(int x) {
+        if (isFull()) {
+            System.out.println("Queue is full");
+        } else if (isEmpty()) {
+            front = rear = 0;
+            arr[rear] = x;
+        } else {
+            rear = (rear + 1) % size;
+            arr[rear] = x;
+        }
+    }
 
-// void dequeue(){
-// if(isEmpty()){
-// System.out.println("Queue is empty");
-// }
-// else if(rear==front){
-// rear=front=-1;
-// }
-// else{
-// front=(front+1)%size;
-// }
-// }
+    void dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+        } else if (rear == front) {
+            rear = front = -1;
+        } else {
+            front = (front + 1) % size;
+        }
+    }
 
-// boolean isEmpty(){
-// return front==-1;
-// }
-// boolean isFull(){
-// return (rear+1)%size==front;
-// }
-// void display(){
-// if(isEmpty()){
-// System.out.println("Queue is empty");
-// }
-// else{
-// for(int i=front; i!=rear; i=(i+1)%size){
-// System.out.print(arr[i]+" ");
-// }
-// System.out.print(arr[rear]);
-// System.out.println();
-// }
-// }
+    boolean isEmpty() {
+        return front == -1;
+    }
 
-// public static void main(String[] args) {
-// Queue q = new Queue(5);
-// q.enqueue(10);
-// q.enqueue(20);
-// q.enqueue(30);
-// q.enqueue(40);
-// q.enqueue(50);
-// q.display();
-// q.dequeue();
-// q.display();
-// q.dequeue();
-// q.display();
-// }
-// }
+    boolean isFull() {
+        return (rear + 1) % size == front;
+    }
+
+    void display() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+        } else {
+            for (int i = front; i != rear; i = (i + 1) % size) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.print(arr[rear]);
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue q = new Queue(5);
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.enqueue(50);
+        q.display();
+        q.dequeue();
+        q.display();
+        q.dequeue();
+        q.display();
+    }
+}
